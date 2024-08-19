@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                         child: CustomTextFormField(
                           hintText: 'Password',
                           prefixIcon: Icons.password, // Correct FontAwesome usage
-                          textInputTypeKeyboard: TextInputType.phone,
+                          textInputTypeKeyboard: TextInputType.name,
                           controller: passwordController,
                           validator: (value) {
                             return AppValidator.validatePassword(value);
@@ -99,9 +99,9 @@ class _LoginState extends State<Login> {
               ),
               Center(
                 child: CustomCircularButton(width: 150.w,text: 'Login', onPressed: (){
-                  if(_loginFormKey.currentState!.validate()){
-                    AppHelperFunctions.navigateToScreen(context, const LandingPage());
-                  }
+                  // if(_loginFormKey.currentState!.validate()){
+                    AppHelperFunctions.navigateToScreenAndRemoveUntil(context,  LandingPage());
+                  // }
                 }),
               ),
               SizedBox(height: 15.h,),
