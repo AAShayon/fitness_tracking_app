@@ -1,81 +1,11 @@
-// import 'package:fitness_tracking_app/utils/constant/colors.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// class Home extends StatefulWidget {
-//   const Home({super.key});
-//
-//   @override
-//   State<Home> createState() => _HomeState();
-// }
-//
-// class _HomeState extends State<Home> {
-//   @override
-//   Widget build(BuildContext context) {
-//     bool isOn=true;
-//     return Scaffold(
-//       appBar:  AppBar(
-//         toolbarHeight: 104.h,
-//         actions: [
-//           Padding(
-//             padding:  EdgeInsets.only(right:18.w ),
-//             child: InkWell(
-//               splashColor: Colors.transparent,
-//               hoverColor: Colors.transparent,
-//               onTap: (){
-//                 setState(() {
-//                   isOn=!isOn;});
-//               },
-//               child: Container(
-//                 width:35.sp ,height: 35.sp,
-//                 decoration: BoxDecoration(
-//                     color:Color(0xffF4F5F6),
-//
-//                     borderRadius: BorderRadius.circular(100)
-//                 ),
-//                 child: Stack(
-//                   children: [
-//                     Positioned(
-//                         top: 10.sp,
-//                         right: 8.sp,
-//                         child:isOn ?
-//                         Container(
-//                           width: 6.19.sp,
-//                           height: 6.19.sp,
-//                           decoration: BoxDecoration(
-//                             color:AppColors.red,
-//                             borderRadius: BorderRadius.circular(100),
-//                           ),
-//                         ):SizedBox.shrink()
-//                     ),
-//                     Center(
-//                       child: Image.asset('assets/app_icon_images/notifications.png',width: 24.sp,height: 24.sp,),
-//                     ),
-//                     Positioned(
-//                         top: 10.sp,
-//                         right: 8.sp,
-//                         child:isOn ? Container(
-//                           width: 6.19.sp,
-//                           height: 6.19.sp,
-//                           decoration: BoxDecoration(
-//                             color:AppColors.red,
-//                             borderRadius: BorderRadius.circular(100),
-//                           ),
-//                         ):SizedBox.shrink()
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           )
-//         ],
-//       ),
-//       body: Center(child: Text('Home')),
-//     );
-//   }
-// }
+import 'package:fitness_tracking_app/modules/home/view/widgets/custom_search_delegate.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
+import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
+import 'package:fitness_tracking_app/viewModel/landing_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -89,111 +19,162 @@ class _HomeState extends State {
 
   @override
   Widget build(BuildContext context) {
+    final landingViewModel=Provider.of<LandingViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(390.w, 104.h), // AppBar height
-        child: Padding(
-          padding: EdgeInsets.only(top: 34.h), // Padding from top
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    // User Profile Image
-                    CircleAvatar(
-                      radius: 22.sp,
-                      backgroundImage: AssetImage('assets/profile_image.png'), // Use your profile image here
-                    ),
-                    SizedBox(width: 12.w), // Spacing between image and text
+        preferredSize: Size(390.w, 60.h), // AppBar height
+        child: Container(
+          color: AppColors.primaryLight,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Center(
+                child: SizedBox(
+                  height: 60.h,width: 358.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          // User Profile Image
+                          CircleAvatar(
+                            radius: 22.sp,
+                            backgroundImage:  AssetImage('assets/app_icon_images/profile.png',),
+                            backgroundColor: AppColors.white,
+                          ),
+                          SizedBox(width: 12.w), // Spacing between image and text
 
-                    // Greeting Text
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            text: 'Hello! ',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.normal,
-                              color: AppColors.textPrimary,
-                            ),
+                          // Greeting Text
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              TextSpan(
-                                text: 'Johan Smith',
+                              RichText(
+                                text: TextSpan(
+                                  text: 'Hello! ',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.normal,
+                                    color: AppColors.textPrimary,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: 'Johan Smith',
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.textPrimary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 4.h),
+                              Text(
+                                '02 July 2024',
                                 style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.textPrimary,
+                                  fontSize: 12.sp,
+                                  color: AppColors.customGray,
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: 4.h),
-                        Text(
-                          '02 July 2024',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: AppColors.customGray,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                        ],
+                      ),
 
-                // Notification Icon with Indicator
-                InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onTap: () {
-                    setState(() {
-                      isOn = !isOn; // Toggle notification indicator
-                    });
-                  },
-                  child: Container(
-                    width: 35.sp,
-                    height: 35.sp,
-                    decoration: BoxDecoration(
-                      color: Color(0xffF4F5F6),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Image.asset(
-                            'assets/app_icon_images/notifications.png',
-                            width: 24.sp,
-                            height: 24.sp,
+                      // Notification Icon with Indicator
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        onTap: () {
+                          setState(() {
+                            isOn = !isOn; // Toggle notification indicator
+                          });
+                        },
+                        child: Container(
+                          width: 35.sp,
+                          height: 35.sp,
+                          decoration: BoxDecoration(
+                            color: AppColors.accent,
+                            border: Border.all(
+                              color: AppColors.grey
+                            ),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  'assets/app_icon_images/notifications.png',
+                                  width: 24.sp,
+                                  height: 24.sp,
+                                ),
+                              ),
+                              if (isOn)
+                                Positioned(
+                                  top: 10.sp,
+                                  right: 8.sp,
+                                  child: Container(
+                                    width: 6.19.sp,
+                                    height: 6.19.sp,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.red,
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
-                        if (isOn)
-                          Positioned(
-                            top: 10.sp,
-                            right: 8.sp,
-                            child: Container(
-                              width: 6.19.sp,
-                              height: 6.19.sp,
-                              decoration: BoxDecoration(
-                                color: AppColors.red,
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
-      body: Center(child: Text('Home')),
+      body: ListView(
+        children: [
+          SizedBox(height: 16.h,),
+          SizedBox(
+            height: 44.h,width: 390.w,
+            child: InkWell(
+              onTap:(){
+                showSearch(context: context, delegate: CustomSearchDelegate());
+              } ,
+              child: Center(child: Container(
+                width: 358.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white
+                ),
+                child: Padding(
+                  padding:  EdgeInsets.symmetric(vertical: 10.h,horizontal: 14.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.search,color: AppColors.customGray,size:18.5.sp ,),
+                      SizedBox(width: 5.w,),
+                      Text('Search',style: AppTextTheme.myAppText16(AppColors.customGray),)
+                    ],
+                  ),
+                ),
+
+              )),
+            ),
+          ),
+          SizedBox(height: 16.h,),
+          Container(height: 358.h,color: Colors.white,child: Text('Your statistics'),),
+          SizedBox(height: 16.h,),
+          Container(height: 232.h,color: Colors.white,child: Text('Daily Activities'),),
+          SizedBox(height: 16.h,),
+          Container(height: 214.h,color: Colors.white,),
+          SizedBox(height: 20.h,)
+
+        ],
+      ),
     );
   }
 }

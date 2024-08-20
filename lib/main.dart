@@ -1,5 +1,9 @@
+import 'package:fitness_tracking_app/modules/activity/view/activity.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/auth/view/registration.dart';
+import 'package:fitness_tracking_app/modules/home/view/home.dart';
+import 'package:fitness_tracking_app/modules/profile/view/profile.dart';
+import 'package:fitness_tracking_app/modules/statistics/view/statistics.dart';
 import 'package:fitness_tracking_app/utils/theme/theme.dart';
 import 'package:fitness_tracking_app/view/splash_screen.dart';
 import 'package:fitness_tracking_app/viewModel/landing_view_model.dart';
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.light, // Adjusted to use constant
+      statusBarIconBrightness: Brightness.dark,
     ));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -59,7 +63,11 @@ class MyApp extends StatelessWidget {
                 routes: {
                   '/': (context) => const SplashScreen(), // SplashScreen route
                   '/login': (context) => const Login(), // LoginScreen route
-                  '/registrationPage': (context) => const RegistrationPage(), // RegistrationScreen route
+                  '/registrationPage': (context) => const RegistrationPage(),
+                  '/home':(context)=>const Home(),
+                  '/activity':(context)=>const Activity(),
+                  '/statistics':(context)=>const Statistics(),
+                  '/profile':(context)=>const Profile(),
                 },
               );
             },
