@@ -41,6 +41,9 @@ dependencies:
   provider: ^6.1.2
   any_image_view: ^1.0.6
   icons_plus: ^5.0.0
+  font_awesome_flutter: ^10.1.0
+  fl_chart: ^0.68.0
+  smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
   flutter_test:

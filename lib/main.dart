@@ -2,6 +2,7 @@ import 'package:fitness_tracking_app/modules/activity/view/activity.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/auth/view/registration.dart';
 import 'package:fitness_tracking_app/modules/home/view/home.dart';
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/modules/profile/view/profile.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/statistics.dart';
 import 'package:fitness_tracking_app/utils/theme/theme.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           providers: [
             // Other providers
             ChangeNotifierProvider(create: (context) => LandingViewModel()),
+            ChangeNotifierProvider(create: (context) => HomeViewModel()),
           ],
           child: Consumer<LandingViewModel>(
             builder: (context, landingViewModel, child) {

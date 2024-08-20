@@ -1,11 +1,14 @@
+import 'package:any_image_view/any_image_view.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/custom_linear_progress_indicator.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/custom_search_delegate.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/daily_activities.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/fl_chart.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/heart_rate_card.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/statistics_progress.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
-import 'package:fitness_tracking_app/viewModel/landing_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,7 +22,6 @@ class _HomeState extends State {
 
   @override
   Widget build(BuildContext context) {
-    final landingViewModel=Provider.of<LandingViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(390.w, 60.h), // AppBar height
@@ -39,7 +41,7 @@ class _HomeState extends State {
                           // User Profile Image
                           CircleAvatar(
                             radius: 22.sp,
-                            backgroundImage:  AssetImage('assets/app_icon_images/profile.png',),
+                            backgroundImage:  const AssetImage('assets/app_icon_images/profile.png',),
                             backgroundColor: AppColors.white,
                           ),
                           SizedBox(width: 12.w), // Spacing between image and text
@@ -166,9 +168,27 @@ class _HomeState extends State {
             ),
           ),
           SizedBox(height: 16.h,),
-          Container(height: 358.h,color: Colors.white,child: Text('Your statistics'),),
+          const StatisticsProgress(),
           SizedBox(height: 16.h,),
-          Container(height: 232.h,color: Colors.white,child: Text('Daily Activities'),),
+          // Container(height: 232.h,color: Colors.white,
+          //   child: Padding(
+          //     padding: EdgeInsets.symmetric(horizontal: 22.w),
+          //     child: Column(
+          //       children: [
+          //         SizedBox(height: 10.h,),
+          //         Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             Text('Daily Activities',style: AppTextTheme.myAppText20(AppColors.textPrimary),),
+          //             TextButton(onPressed: (){}, child: Text('See all',style: AppTextTheme.myAppText16(AppColors.vibrantOrange),))
+          //           ],
+          //         ),
+          //         SizedBox(height:10.h),
+          //
+          //       ],
+          //     ),
+          //   ),),
+          DailyActivities(),
           SizedBox(height: 16.h,),
           Container(height: 214.h,color: Colors.white,),
           SizedBox(height: 20.h,)
@@ -178,3 +198,5 @@ class _HomeState extends State {
     );
   }
 }
+
+
