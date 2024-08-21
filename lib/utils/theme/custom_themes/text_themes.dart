@@ -43,7 +43,7 @@ class AppTextTheme {
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       overflow: TextOverflow.ellipsis,
-      height: 1.36.sp,
+      height: 1.25.sp,
     );
   }
   static TextStyle myAppText18(Color? color) {

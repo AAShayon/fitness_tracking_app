@@ -3,6 +3,7 @@ import 'package:fitness_tracking_app/modules/home/view/widgets/custom_linear_pro
 import 'package:fitness_tracking_app/modules/home/view/widgets/custom_search_delegate.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/daily_activities.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/fl_chart.dart';
+import 'package:fitness_tracking_app/modules/home/view/widgets/goals.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/heart_rate_card.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/statistics_progress.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
@@ -190,7 +191,9 @@ class _HomeState extends State {
           //   ),),
           DailyActivities(),
           SizedBox(height: 16.h,),
-          Container(height: 214.h,color: Colors.white,),
+          Container(height: 214.h,color: Colors.white,
+              child: const GoalsWidget()
+          ),
           SizedBox(height: 20.h,)
 
         ],
