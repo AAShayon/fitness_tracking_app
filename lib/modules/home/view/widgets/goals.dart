@@ -41,6 +41,7 @@ class GoalsWidget extends StatelessWidget {
             // Goals List
             Expanded(
               child: ListView(
+                physics: const NeverScrollableScrollPhysics(),
                 children: const [
                   GoalCard(
                     title: 'ABS & Stretch',

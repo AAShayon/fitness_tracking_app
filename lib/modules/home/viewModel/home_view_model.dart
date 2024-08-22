@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HomeViewModel with ChangeNotifier {
-  final PageController _pageController = PageController();
+  final CarouselController _carouselController = CarouselController();
   int _currentPageIndex = 0;
   bool _onPause = false;
 
-  PageController get pageController => _pageController;
+  CarouselController get carouselController => _carouselController;
 
   int get currentPageIndex => _currentPageIndex;
 
@@ -18,7 +18,7 @@ class HomeViewModel with ChangeNotifier {
 
   void dotNavigationClick(int index) {
     _currentPageIndex = index;
-    pageController.jumpTo(index.toDouble());
+    carouselController.jumpTo(index.toDouble());
     notifyListeners();
   }
   void togglePause() {
