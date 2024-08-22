@@ -37,6 +37,7 @@ class DailyActivitiesCard extends StatelessWidget {
                   height: 16.h,width: 170.w,
                   child: Row(
                     children: [
+                      SizedBox(width: 2.w,),
                       Padding(
                         padding:  EdgeInsets.only(left:5.w),
                         child:    Text('Today, 08:10 AM',
@@ -62,6 +63,7 @@ class DailyActivitiesCard extends StatelessWidget {
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      SizedBox(width: 3.w,),
                       Container(
                         height: 48.h,width: 48.w,
                         decoration: BoxDecoration(

@@ -79,7 +79,7 @@ class Statistics extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Start Strong and \nSet Your Fitness\nGoals',style: AppTextTheme.myAppText18(AppColors.white),),
-                            SizedBox(height: 14.h,),
+                            SizedBox(height: 10.h,),
                             InkWell(
                               onTap: (){},
                               splashColor: Colors.transparent,

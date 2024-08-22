@@ -56,6 +56,16 @@ class AppTextTheme {
       height: 1.25.sp,
     );
   }
+  static TextStyle myAppText161(Color? color) {
+    return TextStyle(
+      color: color,
+      fontFamily: fontFamily,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600,
+      overflow: TextOverflow.ellipsis,
+      height: 1.25.sp,
+    );
+  }
   static TextStyle myAppText18(Color? color) {
     return TextStyle(
       color: color,

@@ -228,7 +228,7 @@ class _ActivityState extends State<Activity> {
               height: 14.h,
             ),
             Container(
-              height: 409.h,
+              height: 412.h,
               width: 390.w,
               color: Colors.white,
               child: Padding(
@@ -329,7 +329,7 @@ class _ActivityState extends State<Activity> {
                               ],
                             ),
                             SizedBox(
-                              height: 14.h,
+                              height: 10.h,
                             ),
                             Align(
                                 alignment: Alignment.bottomRight,
@@ -356,12 +356,9 @@ class _ActivityState extends State<Activity> {
                     SizedBox(
                       height: 20.h,
                     ),
-                    Container(
+                    SizedBox(
                       width: 358.w,
                       height: 78.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.lightGrey,
-                          borderRadius: BorderRadius.circular(10)),
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -369,11 +366,14 @@ class _ActivityState extends State<Activity> {
                             width: 172.w,
                             height: 78.h,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(16.r),
+                            color: AppColors.accent
+                            ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10.w),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
                                     height: 14.h,
@@ -415,11 +415,12 @@ class _ActivityState extends State<Activity> {
                             width: 172.w,
                             height: 78.h,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(16.r),color: AppColors.accent),
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10.w),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
                                     height: 14.h,
@@ -436,9 +437,6 @@ class _ActivityState extends State<Activity> {
                                             AppColors.textColorBlack),
                                       )
                                     ],
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
                                   ),
                                  RichText(text: TextSpan(
                                    children: [

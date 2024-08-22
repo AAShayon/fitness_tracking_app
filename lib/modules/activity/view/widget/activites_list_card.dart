@@ -36,7 +36,7 @@ class ActivitiesVerticalCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(height: 5.h,),
+                      SizedBox(height: 10.h,),
                       SizedBox(
                         height: 16.h,width: 170.w,
                         child: Row(

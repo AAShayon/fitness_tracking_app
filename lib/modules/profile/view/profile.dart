@@ -60,6 +60,8 @@
 //     );
 //   }
 // }
+import 'package:fitness_tracking_app/modules/auth/view/login.dart';
+import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -467,7 +469,7 @@ class Profile extends StatelessWidget {
                       Container(height: 2.h,color: AppColors.accent,),
                       ProfileButton(iconData: Icons.description, btnName: 'Privacy Policy',onPressed: (){},),
                       Container(height: 2.h,color: AppColors.accent,),
-                      ProfileButton(iconData: Icons.logout_outlined, btnName: 'Log out',onPressed: (){},),
+                      ProfileButton(iconData: Icons.logout_outlined, btnName: 'Log out',onPressed: (){AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const Login());},),
                     ],
                   ),
                 ),
@@ -509,7 +511,7 @@ class ProfileButton extends StatelessWidget {
                 ),
                 child: Icon(iconData,color: AppColors.darkerGrey,size: 18.sp,)),
             SizedBox(width: 5.w,),
-            Text(btnName,style:AppTextTheme.myAppText18(AppColors.textColorBlack) ,)
+            Text(btnName,style:AppTextTheme.myAppText161(AppColors.textColorBlack) ,)
           ],
         ),
       ),
