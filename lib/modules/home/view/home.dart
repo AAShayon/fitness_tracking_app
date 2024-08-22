@@ -194,7 +194,7 @@ class _HomeState extends State {
               //       ],
               //     ),
               //   ),),
-              DailyActivities(),
+              const DailyActivities(),
               SizedBox(height: 16.h,),
               Container(height: 214.h,color: Colors.white,
                   child: const GoalsWidget()

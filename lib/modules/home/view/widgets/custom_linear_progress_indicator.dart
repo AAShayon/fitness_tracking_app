@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomLinearProgressIndicator extends StatelessWidget {
-  final Gradient gradient;
+  final Gradient? gradient;
   final double value;
   final Color colorStatus;
+  final Color? color;
   final double width;
+  final double height;
 
    const CustomLinearProgressIndicator({
     super.key,
-    required this.gradient,
-    required this.value, required this.colorStatus,  this.width=325 ,
+     this.gradient,
+    required this.value, required this.colorStatus,  this.width=325 ,this.height=4, this.color
   });
 
   @override
@@ -19,7 +21,7 @@ class CustomLinearProgressIndicator extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 4.sp,
+          height: height,
           width: width,
           decoration: BoxDecoration(
             color: colorStatus, // Background color
@@ -30,6 +32,7 @@ class CustomLinearProgressIndicator extends StatelessWidget {
           height: 4.sp,
           width: MediaQuery.of(context).size.width * value, // Width adjusts according to progress
           decoration: BoxDecoration(
+            color: color,
             gradient: gradient,
             borderRadius: BorderRadius.circular(5),
           ),

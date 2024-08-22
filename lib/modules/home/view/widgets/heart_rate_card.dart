@@ -32,7 +32,7 @@ class HeartRateCard extends StatelessWidget {
                 SizedBox(width: 5.w),
                 Text(
                   'Heart rate',
-                  style: AppTextTheme.myAppText12(AppColors.darkGray),
+                  style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
                 ),
               ],
             ),
@@ -48,13 +48,14 @@ class HeartRateCard extends StatelessWidget {
                   ),
                   TextSpan(
                     text: 'bpm',
-                    style: AppTextTheme.myAppText12(AppColors.darkGray),
+                    style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
                   ),
                 ],
               ),
             ),
           ),
-          CustomChart(),
+          // CustomChart(),
+          Image.asset('assets/app_icon_images/graph.png',width: 170.w,height: 80.h,)
         ],
       ),
     );

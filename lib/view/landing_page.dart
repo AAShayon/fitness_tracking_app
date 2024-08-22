@@ -4,7 +4,7 @@ import 'package:fitness_tracking_app/modules/profile/view/profile.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/statistics.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/view/widgets/bottom_nav_bar.dart';
-import 'package:fitness_tracking_app/viewModel/landing_view_model.dart';
+import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,16 +19,17 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LandingViewModel>(
+    return Consumer<SettingViewModel>(
       builder: (context,landingScreenViewModel,child){
         return WillPopScope(
           onWillPop: () async {
-            if (landingScreenViewModel.canGoBack()) {
+            if (landingScreenViewModel.currentIndex > 0) {
               landingScreenViewModel.goBackToPreviousIndex();
-              return false; // Prevent exiting the app
-            } else {
-              bool shouldExit = await _showExitDialog(context);
-              return shouldExit; // Exit app if user confirms
+              return false;
+            }
+            else {
+              bool exit = await _showExitDialog(context);
+              return exit;
             }
           },
             child:Scaffold(

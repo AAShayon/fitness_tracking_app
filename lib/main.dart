@@ -7,7 +7,8 @@ import 'package:fitness_tracking_app/modules/profile/view/profile.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/statistics.dart';
 import 'package:fitness_tracking_app/utils/theme/theme.dart';
 import 'package:fitness_tracking_app/view/splash_screen.dart';
-import 'package:fitness_tracking_app/viewModel/landing_view_model.dart';
+
+import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,10 +52,10 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
           providers: [
             // Other providers
-            ChangeNotifierProvider(create: (context) => LandingViewModel()),
+            ChangeNotifierProvider(create: (context) => SettingViewModel()),
             ChangeNotifierProvider(create: (context) => HomeViewModel()),
           ],
-          child: Consumer<LandingViewModel>(
+          child: Consumer<SettingViewModel>(
             builder: (context, landingViewModel, child) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,

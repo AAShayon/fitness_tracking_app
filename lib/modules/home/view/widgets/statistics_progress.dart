@@ -49,7 +49,7 @@ class StatisticsProgress extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: 'In-Progress ',
-                              style: AppTextTheme.myAppText16(AppColors.darkGray),
+                              style: AppTextTheme.myAppText16(AppColors.textColorDarkGray),
                             ),
                             WidgetSpan(
                               child: SizedBox(width: 10.w), // Add space between the texts
@@ -130,7 +130,7 @@ class StatisticsProgress extends StatelessWidget {
                                     imagePath: 'assets/app_icon_images/shoe.png',
                                   ),
                                   SizedBox(width: 5.w,),
-                                  Text('Steps',style: AppTextTheme.myAppText12(AppColors.darkGray),),
+                                  Text('Steps',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
                                 ],
                               ),
                             ),
@@ -166,7 +166,7 @@ class StatisticsProgress extends StatelessWidget {
                                     imagePath: 'assets/app_icon_images/moon.png',
                                   ),
                                   SizedBox(width: 5.w,),
-                                  Text('Sleep',style: AppTextTheme.myAppText12(AppColors.darkGray),),
+                                  Text('Sleep',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
                                 ],
                               ),
                             ),
@@ -184,7 +184,7 @@ class StatisticsProgress extends StatelessWidget {
                                       ),
                                       TextSpan(
                                         text: 'h ',
-                                        style: AppTextTheme.myAppText12(AppColors.darkGray),
+                                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
                                       ),
                                       TextSpan(
                                         text: '34',
@@ -192,7 +192,7 @@ class StatisticsProgress extends StatelessWidget {
                                       ),
                                       TextSpan(
                                         text: 'm',
-                                        style: AppTextTheme.myAppText12(AppColors.darkGray),
+                                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
                                       ),
                                     ],
                                   ),
@@ -208,7 +208,7 @@ class StatisticsProgress extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                HeartRateCard(),
+                const HeartRateCard(),
               ],
             ),
           )

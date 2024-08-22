@@ -9,8 +9,8 @@ class AppTextTheme {
 
   static TextTheme lightTextTheme = TextTheme(
 
-    bodySmall: myAppText12(AppColors.darkGray),
-    headlineSmall: myAppText16(AppColors.darkGray),
+    bodySmall: myAppText12(AppColors.textColorDarkGray),
+    headlineSmall: myAppText16(AppColors.textColorDarkGray),
     headlineMedium: myAppText18(AppColors.textPrimary),
     bodyMedium: myAppText20(AppColors.textPrimary),
     headlineLarge: myAppText24(AppColors.textPrimary), // Adjust if necessary
@@ -32,6 +32,16 @@ class AppTextTheme {
       fontFamily: fontFamily,
       fontSize: 12.sp, // Adjusted to match the method name
       fontWeight: FontWeight.w500,
+      overflow: TextOverflow.ellipsis,
+      height: 1.2.sp,
+    );
+  }
+  static TextStyle myAppText14(Color? color) {
+    return TextStyle(
+      color: color,
+      fontFamily: fontFamily,
+      fontSize: 12.sp, // Adjusted to match the method name
+      fontWeight: FontWeight.w600,
       overflow: TextOverflow.ellipsis,
       height: 1.2.sp,
     );

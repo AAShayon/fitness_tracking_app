@@ -80,7 +80,7 @@ class AppColors{
 
   static const Color textPrimary=Color(0xFF000B23);
   static const Color textColorBlack=Color(0xFF000B23);
-  static const Color darkGray = Color(0xFF494949);
+  static const Color textColorDarkGray = Color(0xFF494949);
   static const Color textWhite=Colors.white;
 
   ///background Colors

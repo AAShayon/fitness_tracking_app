@@ -1,16 +1,15 @@
 import 'package:fitness_tracking_app/model/service/helper/theme_helper.dart';
 import 'package:flutter/material.dart';
 
-class LandingViewModel with ChangeNotifier {
+class SettingViewModel with ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
   int _currentIndex = 0;
-  List<int> _navigationHistory = [0];
   bool _onPause = false;
   bool get onPause => _onPause;
   int get currentIndex => _currentIndex;
   final ThemeService _themeService = ThemeService();
 
-  LandingViewModel() {
+  SettingViewModel() {
     _initializeThemeMode();
   }
 
@@ -37,27 +36,31 @@ class LandingViewModel with ChangeNotifier {
   }
 
   void updateIndex(int index) {
-    if (_currentIndex != index) {
-      _navigationHistory.add(index); // Add the new index to the navigation history
-      _currentIndex = index;
-      notifyListeners();
-      debugPrint('Index Updated: $_currentIndex, History: $_navigationHistory');
-    }
+    // if (_currentIndex != index) {
+    //   _navigationHistory.add(index); // Add the new index to the navigation history
+    //   _currentIndex = index;
+    //   notifyListeners();
+    //   debugPrint('Index Updated: $_currentIndex, History: $_navigationHistory');
+    // }
+    _currentIndex = index;
+    notifyListeners();
   }
 
   void goBackToPreviousIndex() {
-    if (_navigationHistory.length > 1) {
-      _navigationHistory.removeLast(); // Remove the current index
-      _currentIndex = _navigationHistory.last; // Set the current index to the previous one
+    // if (_navigationHistory.length > 1) {
+    //   _navigationHistory.removeLast(); // Remove the current index
+    //   _currentIndex = _navigationHistory.last; // Set the current index to the previous one
+    //   notifyListeners();
+    //   debugPrint('Went Back: $_currentIndex, History: $_navigationHistory');
+    // }
+    if (_currentIndex > 0) {
+      _currentIndex = 0;
       notifyListeners();
-      debugPrint('Went Back: $_currentIndex, History: $_navigationHistory');
     }
   }
   void togglePause() {
     _onPause = !_onPause;
     notifyListeners();
   }
-  bool canGoBack() {
-    return _navigationHistory.length > 1;
-  }
+
 }

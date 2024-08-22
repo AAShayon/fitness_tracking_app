@@ -113,14 +113,17 @@ class GoalCard extends StatelessWidget {
           ),
           // Tag Section
           Container(
+            height: 23.h,width: 86.w,
             padding: EdgeInsets.symmetric(horizontal: 12.w),
             decoration: BoxDecoration(
-              color: Colors.orange.withOpacity(0.2),
+              color: Color(0xffFFF7ED),
               borderRadius: BorderRadius.circular(20.r),
             ),
-            child: Text(
-              tag,
-              style: AppTextTheme.myAppText12(AppColors.vibrantOrange),
+            child: Center(
+              child: Text(
+                tag,
+                style: AppTextTheme.myAppText12(AppColors.vibrantOrange),
+              ),
             ),
           ),
         ],

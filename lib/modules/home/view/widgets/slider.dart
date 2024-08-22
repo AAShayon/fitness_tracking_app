@@ -59,7 +59,7 @@ class SliderScreen extends StatelessWidget {
                   dotsCount: 3,  // The number of pages
                   position: homeViewModel.currentPageIndex, // Cast the current page index to double
                   decorator: DotsDecorator(
-                    activeColor: AppColors.darkGray,
+                    activeColor: AppColors.textColorDarkGray,
                     color: Colors.grey,
                     size: Size.square(10.w),  // Normal dot size
                     activeSize: Size.square(12.w),  // Active dot size
