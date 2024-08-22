@@ -22,16 +22,15 @@ class LandingPage extends StatelessWidget {
     return Consumer<LandingViewModel>(
       builder: (context,landingScreenViewModel,child){
         return WillPopScope(
-            onWillPop: () async {
-              if (landingScreenViewModel.currentIndex > 0) {
-                landingScreenViewModel.goBackToPreviousIndex();
-                return false;
-              }
-              else {
-                bool exit = await _showExitDialog(context);
-                return exit;
-              }
-            },
+          onWillPop: () async {
+            if (landingScreenViewModel.canGoBack()) {
+              landingScreenViewModel.goBackToPreviousIndex();
+              return false; // Prevent exiting the app
+            } else {
+              bool shouldExit = await _showExitDialog(context);
+              return shouldExit; // Exit app if user confirms
+            }
+          },
             child:Scaffold(
               body: _screens[landingScreenViewModel.currentIndex],
               bottomNavigationBar:const BottomNavBar(),
@@ -45,19 +44,21 @@ class LandingPage extends StatelessWidget {
        context: context,
        builder: (context) => AlertDialog(
          backgroundColor: AppColors.secondaryDark,
-         title: Text('Exit App',style: TextStyle(color: AppColors.primaryLight)),
-         content: Text('Are you sure you want to exit the app?',style: TextStyle(color: AppColors.textPrimary)),
+         title: const Text('Exit App', style: TextStyle(color: AppColors.primaryLight)),
+         content: const Text('Are you sure you want to exit the app?', style: TextStyle(color: AppColors.textPrimary)),
          actions: [
            TextButton(
              onPressed: () => Navigator.of(context).pop(false),
-             child: Text('No',style: TextStyle(color: AppColors.textPrimary)),
+             child: const Text('No', style: TextStyle(color: AppColors.textPrimary)),
            ),
            TextButton(
              onPressed: () => Navigator.of(context).pop(true),
-             child: Text('Yes',style: TextStyle(color: AppColors.textPrimary)),
+             child: const Text('Yes', style: TextStyle(color: AppColors.textPrimary)),
            ),
          ],
        ),
-     ) ?? false;
+     ) ??
+         false; // In case the dialog is dismissed, return false
    }
 }
+
