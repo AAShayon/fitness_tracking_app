@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:fitness_tracking_app/modules/home/view/widgets/custom_search_delegate.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/daily_activities.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/goals.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/statistics_progress.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
+import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
 import 'package:flutter/material.dart';
@@ -37,15 +40,14 @@ class _HomeState extends State {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // User Profile Image
                               CircleAvatar(
                                 radius: 22.sp,
-                                backgroundImage:  const AssetImage('assets/app_icon_images/profile.png',),
+                                backgroundImage:  homeViewModel.profileImage != null ? MemoryImage(base64Decode(homeViewModel.profileImage!)):const AssetImage('assets/app_icon_images/profile.png',),
                                 backgroundColor: AppColors.white,
                               ),
-
+                              SizedBox(width: 15.w,),
                               // Greeting Text
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +63,7 @@ class _HomeState extends State {
                                       ),
                                       children: [
                                         TextSpan(
-                                          text: 'Johan Smith',
+                                          text: "${homeViewModel.name}",
                                           style: TextStyle(
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.bold,
@@ -73,7 +75,7 @@ class _HomeState extends State {
                                   ),
                                   SizedBox(height: 4.h),
                                   Text(
-                                    '02 July 2024',
+                                    AppHelperFunctions.getFormattedDate(context, DateTime.now()),
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color: AppColors.customGray,

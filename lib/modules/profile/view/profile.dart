@@ -10,7 +10,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Consumer<SettingViewModel>(
-//         builder: (context,landingViewModel,child) {
+//         builder: (context,homeViewModel,child) {
 //         return Scaffold(
 //           appBar: PreferredSize(
 //             preferredSize: Size(390.w, 60.h), // AppBar height
@@ -28,7 +28,7 @@
 //                             children: [
 //                               InkWell(
 //                                 onTap: () {
-//                                   landingViewModel.goBackToPreviousIndex();
+//                                   homeViewModel.goBackToPreviousIndex();
 //                                 },
 //                                 child: SizedBox(
 //                                   height: 60.h,
@@ -60,6 +60,8 @@
 //     );
 //   }
 // }
+import 'dart:convert';
+
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
@@ -78,7 +80,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
-      builder: (context, landingViewModel, child) {
+      builder: (context, homeViewModel, child) {
         return Scaffold(
           appBar: PreferredSize(
             preferredSize: Size(390.w, 60.h), // AppBar height
@@ -95,7 +97,7 @@ class Profile extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              landingViewModel.goBackToPreviousIndex();
+                              homeViewModel.goBackToPreviousIndex();
                             },
                             child: SizedBox(
                               height: 60.h,
@@ -129,70 +131,71 @@ class Profile extends StatelessWidget {
               Container(
                 color: Colors.white,
                 height:112.h ,width: 390.w,
-                child:  Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 80.h,
-                          width: 80.w,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            // color: Colors.red,
-                            image: DecorationImage(
-                              image: AssetImage('assets/app_icon_images/profile.png'),
-                              fit: BoxFit.cover,
+                child:  Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 80.h,
+                            width: 80.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              // color: Colors.red,
+                              image: DecorationImage(
+                                image: homeViewModel.profileImage != null ? MemoryImage(base64Decode(homeViewModel.profileImage!)):const AssetImage('assets/app_icon_images/profile.png',),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        // User Info
-                        SizedBox(
-                          height: 72.h,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Johan Smith',
-                                style: AppTextTheme.myAppText18(AppColors.textColorBlack),
-                              ),
+                          // User Info
+                          SizedBox(width: 10.w,),
+                          SizedBox(
+                            height: 72.h,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${homeViewModel.name}',
+                                  style: AppTextTheme.myAppText18(AppColors.textColorBlack),
+                                ),
 
-                              Text(
-                                'joined 15-06-2024',
-                                style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
-                              ),
-                              SizedBox(height: 4.h),
-                              RichText(text: TextSpan(
-                                children: [
-                                  TextSpan(text: '180',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
-                                  WidgetSpan(child: SizedBox(width: 5.w,)),
-                                  TextSpan(
-                                  text: 'm •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                              ),
-                                  WidgetSpan(child: SizedBox(width: 3.w,)),
-                                  TextSpan(text: '82',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
-                                  WidgetSpan(child: SizedBox(width: 5.w,)),
-                                  TextSpan(
-                                      text: 'kg •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                                  ),
-                                  WidgetSpan(child: SizedBox(width: 3.w,)),
-                                  TextSpan(text: '30',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
-                                  WidgetSpan(child: SizedBox(width: 5.w,)),
-                                  TextSpan(
-                                      text: 'years •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                                  ),
-                                ]
-                              ))
+                                Text(
+                                  'joined 15-06-2024',
+                                  style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
+                                ),
+                                SizedBox(height: 4.h),
+                                RichText(text: TextSpan(
+                                  children: [
+                                    TextSpan(text: '180',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                    WidgetSpan(child: SizedBox(width: 5.w,)),
+                                    TextSpan(
+                                    text: 'm •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                                ),
+                                    WidgetSpan(child: SizedBox(width: 3.w,)),
+                                    TextSpan(text: '82',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                    WidgetSpan(child: SizedBox(width: 5.w,)),
+                                    TextSpan(
+                                        text: 'kg •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                                    ),
+                                    WidgetSpan(child: SizedBox(width: 3.w,)),
+                                    TextSpan(text: '30',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                    WidgetSpan(child: SizedBox(width: 5.w,)),
+                                    TextSpan(
+                                        text: 'years •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                                    ),
+                                  ]
+                                ))
 
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                   Padding(
-                     padding:  EdgeInsets.only(right: 16.w),
-                     child: InkWell(
+                        ],
+                      ),
+                     InkWell(
                        onTap: (){},
                        hoverColor: Colors.transparent,
                        splashColor: Colors.transparent,
@@ -205,9 +208,9 @@ class Profile extends StatelessWidget {
                          ),
                          child: Center(child: Text('Edit',style: AppTextTheme.myAppText12(AppColors.primaryLight),)),
                        ),
-                     ),
-                   )
-                  ],
+                     )
+                    ],
+                  ),
                 ),
               ),
               Container(height: 16.h,color: AppColors.accent,),
@@ -508,7 +511,14 @@ class Profile extends StatelessWidget {
                       Container(height: 2.h,color: AppColors.accent,),
                       ProfileButton(iconData: Icons.description, btnName: 'Privacy Policy',onPressed: (){},),
                       Container(height: 2.h,color: AppColors.accent,),
-                      ProfileButton(iconData: Icons.logout_outlined, btnName: 'Log out',onPressed: (){AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const Login());},),
+                      ProfileButton(iconData: Icons.logout_outlined, btnName: 'Log out',onPressed: ()async{
+                      await homeViewModel.logout().then((isTrue){
+                        if(context.mounted){
+                          AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const Login());
+                        }
+                      });
+
+                        },),
                     ],
                   ),
                 ),

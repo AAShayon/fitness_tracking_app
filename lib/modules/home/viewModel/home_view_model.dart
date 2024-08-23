@@ -1,7 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:fitness_tracking_app/model/service/helper/local_storage_helper.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel with ChangeNotifier {
+  final LocalStorageService _storageService = LocalStorageService();
   final CarouselController _carouselController = CarouselController();
+  String? name;
+  String? profileImage;
   int _currentPageIndex = 0;
   int _currentIndex = 0;
   bool _onPause = false;
@@ -38,5 +45,33 @@ class HomeViewModel with ChangeNotifier {
     }
   }
 
+  Future<void> login({
+    required String name,
+    required File? profileImage,
+  }) async {
+    await _storageService.write(key: 'name', value: name);
+    if (profileImage != null) {
+      await _storageService.write(key: 'profileImage', value: base64Encode(profileImage.readAsBytesSync()));
+    }
+    await _loadUserData();
+    notifyListeners();
+  }
 
+  Future<void> logout() async {
+    await _storageService.delete(key: 'name');
+    await _storageService.delete(key: 'profileImage');
+    name = null;
+    profileImage = null;
+    notifyListeners();
+  }
+
+  Future<bool> isLoggedIn() async {
+    await _loadUserData();
+    return name != null;
+  }
+
+  Future<void> _loadUserData() async {
+    name = await _storageService.read(key: 'name') as String?;
+    profileImage = await _storageService.read(key: 'profileImage') as String?;
+  }
 }
