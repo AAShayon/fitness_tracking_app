@@ -61,6 +61,7 @@
 //   }
 // }
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingViewModel>(
+    return Consumer<HomeViewModel>(
       builder: (context, landingViewModel, child) {
         return Scaffold(
           appBar: PreferredSize(
@@ -125,95 +126,88 @@ class Profile extends StatelessWidget {
             children: [
 
               // User Profile Information
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  height:112.h ,width: 390.w,
-                  child:  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Container(
+                color: Colors.white,
+                height:112.h ,width: 390.w,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              height: 80.h,
-                              width: 80.w,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage('assets/app_icon_images/profile.png'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                        Container(
+                          height: 80.h,
+                          width: 80.w,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            // color: Colors.red,
+                            image: DecorationImage(
+                              image: AssetImage('assets/app_icon_images/profile.png'),
+                              fit: BoxFit.cover,
                             ),
-                            // User Info
-                            SizedBox(
-                              height: 72.h,width: 193.w,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Johan Smith',
-                                    style: AppTextTheme.myAppText18(AppColors.textColorBlack),
-                                  ),
-                                  SizedBox(height: 4.h),
-                                  Text(
-                                    'joined 15-06-2024',
-                                    style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
-                                  ),
-                                  SizedBox(height: 4.h),
-                                  RichText(text: TextSpan(
-                                    children: [
-                                      TextSpan(text: '180',style: AppTextTheme.myAppText18(AppColors.textColorBlack)),
-                                      WidgetSpan(child: SizedBox(width: 5.w,)),
-                                      TextSpan(
-                                      text: 'm •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                                  ),
-                                      WidgetSpan(child: SizedBox(width: 3.w,)),
-                                      TextSpan(text: '82',style: AppTextTheme.myAppText18(AppColors.textColorBlack)),
-                                      WidgetSpan(child: SizedBox(width: 5.w,)),
-                                      TextSpan(
-                                          text: 'kg •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                                      ),
-                                      WidgetSpan(child: SizedBox(width: 3.w,)),
-                                      TextSpan(text: '30',style: AppTextTheme.myAppText18(AppColors.textColorBlack)),
-                                      WidgetSpan(child: SizedBox(width: 5.w,)),
-                                      TextSpan(
-                                          text: 'years •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
-                                      ),
-                                    ]
-                                  ))
-                                  // Text(
-                                  //   '180 m • 82 kg • 30 yrs',
-                                  //   style: AppTextTheme.myAppText12(AppColors.black),
-                                  // ),
-                                ],
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
+                        // User Info
+                        SizedBox(
+                          height: 72.h,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Johan Smith',
+                                style: AppTextTheme.myAppText18(AppColors.textColorBlack),
+                              ),
 
-                        // Edit Button
-                       InkWell(
-                         onTap: (){},
-                         hoverColor: Colors.transparent,
-                         splashColor: Colors.transparent,
-                         child: Container(
-                           width: 53.w,
-                           height: 32.h,
-                           decoration: BoxDecoration(
-                             color: AppColors.vibrantOrange,
-                             borderRadius: BorderRadius.circular(16.r)
-                           ),
-                           child: Center(child: Text('Edit',style: AppTextTheme.myAppText12(AppColors.primaryLight),)),
-                         ),
-                       )
+                              Text(
+                                'joined 15-06-2024',
+                                style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
+                              ),
+                              SizedBox(height: 4.h),
+                              RichText(text: TextSpan(
+                                children: [
+                                  TextSpan(text: '180',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                  WidgetSpan(child: SizedBox(width: 5.w,)),
+                                  TextSpan(
+                                  text: 'm •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                              ),
+                                  WidgetSpan(child: SizedBox(width: 3.w,)),
+                                  TextSpan(text: '82',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                  WidgetSpan(child: SizedBox(width: 5.w,)),
+                                  TextSpan(
+                                      text: 'kg •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                                  ),
+                                  WidgetSpan(child: SizedBox(width: 3.w,)),
+                                  TextSpan(text: '30',style: AppTextTheme.myAppText14(AppColors.textColorBlack)),
+                                  WidgetSpan(child: SizedBox(width: 5.w,)),
+                                  TextSpan(
+                                      text: 'years •',style: AppTextTheme.myAppText12(AppColors.darkerGrey)
+                                  ),
+                                ]
+                              ))
+
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  ),
+                   Padding(
+                     padding:  EdgeInsets.only(right: 16.w),
+                     child: InkWell(
+                       onTap: (){},
+                       hoverColor: Colors.transparent,
+                       splashColor: Colors.transparent,
+                       child: Container(
+                         width: 53.w,
+                         height: 32.h,
+                         decoration: BoxDecoration(
+                           color: AppColors.vibrantOrange,
+                           borderRadius: BorderRadius.circular(16.r)
+                         ),
+                         child: Center(child: Text('Edit',style: AppTextTheme.myAppText12(AppColors.primaryLight),)),
+                       ),
+                     ),
+                   )
+                  ],
                 ),
               ),
               Container(height: 16.h,color: AppColors.accent,),
@@ -234,20 +228,65 @@ class Profile extends StatelessWidget {
                       SizedBox(height: 8.h),
                       // Progress Metrics
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Image.asset('assets/app_icon_images/shoe.png',height: 15.sp,width: 15.sp,),
-                          SizedBox(width: 8.w),
-                          const ProgressCountCard(count: '67,265',specification: 'steps',),
-                          SizedBox(width: 10.w),
-                          Icon(Icons.local_fire_department, color: Colors.red, size: 20.sp),
-                          SizedBox(width: 8.w),
-                         const ProgressCountCard(count: '67,30.5', specification: 'cal'),
-                          SizedBox(width: 16.w),
-                          Icon(Icons.location_on, color: AppColors.vibrantOrange, size: 20.sp),
-                          SizedBox(width: 8.w),
-                          const ProgressCountCard(count: '50.2', specification: 'mi')
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset('assets/app_icon_images/shoe.png', height: 20.sp, width: 20.sp),
+                              SizedBox(width: 4.w),
+                              const ProgressCountCard(count: '67,265', specification: 'steps'),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.local_fire_department, color: Colors.red, size: 20.sp),
+                              SizedBox(width: 4.w),
+                              const ProgressCountCard(count: '6,730.5', specification: 'cal'),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on, color: AppColors.vibrantOrange, size: 20.sp),
+                              SizedBox(width: 8.w),
+                              const ProgressCountCard(count: '50.2', specification: 'mi'),
+                            ],
+                          ),
                         ],
                       ),
+
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Expanded(
+                      //       child: Row(
+                      //         children: [
+                      //           Image.asset('assets/app_icon_images/shoe.png',height: 15.sp,width: 15.sp,),
+                      //           SizedBox(width: 8.w),
+                      //           const ProgressCountCard(count: '67,265',specification: 'steps',),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     Expanded(
+                      //       child: Row(
+                      //         children: [
+                      //           Icon(Icons.local_fire_department, color: Colors.red, size: 20.sp),
+                      //           SizedBox(width: 8.w),
+                      //          const ProgressCountCard(count: '67,30.5', specification: 'cal'),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     Expanded(
+                      //       child: Row(
+                      //         children: [
+                      //           Icon(Icons.location_on, color: AppColors.vibrantOrange, size: 20.sp),
+                      //           SizedBox(width: 8.w),
+                      //           const ProgressCountCard(count: '50.2', specification: 'mi'),
+                      //         ],
+                      //       ),
+                      //     )
+                      //   ],
+                      // ),
                       SizedBox(height: 20.h),
                       // Progress Bar Chart
                       SizedBox(
@@ -291,7 +330,7 @@ class Profile extends StatelessWidget {
               Container(height: 16.h,color: AppColors.accent,),
 
               Container(
-                height: 160.h,width: 358.w,
+                height: 162.h,width: 358.w,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -370,7 +409,7 @@ class Profile extends StatelessWidget {
               ),
               Container(height: 20.h,color: AppColors.accent,),
               Container(
-                height: 160.h,width: 358.w,
+                height: 162.h,width: 358.w,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -450,7 +489,7 @@ class Profile extends StatelessWidget {
               SizedBox(height: 16.h),
               Container(
                 width: 390.w,
-                height: 264.h,
+                height: 266.h,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -531,7 +570,7 @@ class ProgressCountCard extends StatelessWidget {
     return RichText(text: TextSpan(
       children: [
         TextSpan(
-          text: count,style: AppTextTheme.myAppText18(AppColors.textColorBlack),
+          text: count,style: AppTextTheme.myAppText161(AppColors.textColorBlack),
         ),WidgetSpan(child: SizedBox(width: 2.w,)),
         TextSpan(text: specification,style: AppTextTheme.myAppText12(AppColors.darkerGrey))
       ]

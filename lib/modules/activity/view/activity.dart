@@ -2,6 +2,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_tracking_app/modules/activity/view/widget/activites_list_card.dart';
 import 'package:fitness_tracking_app/modules/activity/view/widget/reusable_activites.dart';
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
 import 'package:fitness_tracking_app/view/widgets/fade_in_animation.dart';
@@ -23,7 +24,7 @@ DateTime selectedDate = DateTime.now(); // Initially set to today
 class _ActivityState extends State<Activity> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingViewModel>(
+    return Consumer<HomeViewModel>(
         builder: (context, landingViewModel, child) {
       return Scaffold(
         appBar: PreferredSize(
@@ -362,48 +363,50 @@ class _ActivityState extends State<Activity> {
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 172.w,
-                            height: 78.h,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.r),
-                            color: AppColors.accent
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SizedBox(
-                                    height: 14.h,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                        'assets/app_icon_images/shoe.png',
-                                        height: 18.sp,
-                                        width: 18.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 4.w,
-                                      ),
-                                      Text(
-                                        'Steps',
-                                        style: AppTextTheme.myAppText16(
-                                            AppColors.textColorBlack),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  Text(
-                                    '19,124',
-                                    style: AppTextTheme.myAppText20(
-                                        AppColors.textColorBlack),
-                                  )
-                                ],
+                          Flexible(
+                            child: Container(
+                              height: 78.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),
+                              color: AppColors.accent
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      height: 14.h,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          'assets/app_icon_images/shoe.png',
+                                          height: 18.sp,
+                                          width: 18.sp,
+                                        ),
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        Text(
+                                          'Steps',
+                                          style: AppTextTheme.myAppText16(
+                                              AppColors.textColorBlack),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    Text(
+                                      '19,124',
+                                      style: AppTextTheme.myAppText20(
+                                          AppColors.textColorBlack),
+                                    ),
+
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -411,56 +414,58 @@ class _ActivityState extends State<Activity> {
                             width: 10.w,
                             color: Colors.white,
                           ),
-                          Container(
-                            width: 172.w,
-                            height: 78.h,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.r),color: AppColors.accent),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SizedBox(
-                                    height: 14.h,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.timer,color: AppColors.customBlue,),
-                                      SizedBox(
-                                        width: 4.w,
-                                      ),
-                                      Text(
-                                        'Time',
-                                        style: AppTextTheme.myAppText16(
-                                            AppColors.textColorBlack),
-                                      )
-                                    ],
-                                  ),
-                                 RichText(text: TextSpan(
-                                   children: [
-                                     TextSpan(
-                                       text: '2',
-                                       style: AppTextTheme.myAppText20(AppColors.textColorBlack)
-                                     ),
-                                     WidgetSpan(child: SizedBox(width: 2.w,)),
-                                     TextSpan(
-                                         text: 'h',
-                                         style: AppTextTheme.myAppText12(AppColors.textColorDarkGray)
-                                     ),
-                                     WidgetSpan(child: SizedBox(width: 2.w,)),
-                                     TextSpan(
-                                         text: '14',
+                          Flexible(
+                            child: Container(
+                              height: 78.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),color: AppColors.accent),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      height: 14.h,
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.timer,color: AppColors.customBlue,),
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        Text(
+                                          'Time',
+                                          style: AppTextTheme.myAppText16(
+                                              AppColors.textColorBlack),
+                                        )
+                                      ],
+                                    ),
+                                   RichText(text: TextSpan(
+                                     children: [
+                                       TextSpan(
+                                         text: '2',
                                          style: AppTextTheme.myAppText20(AppColors.textColorBlack)
-                                     ),WidgetSpan(child: SizedBox(width: 2.w,)),
-                                     TextSpan(
-                                         text: 'm',
-                                         style: AppTextTheme.myAppText12(AppColors.textColorDarkGray)
-                                     ),
-                                   ]
-                                 ))
-                                ],
+                                       ),
+                                       WidgetSpan(child: SizedBox(width: 2.w,)),
+                                       TextSpan(
+                                           text: 'h',
+                                           style: AppTextTheme.myAppText12(AppColors.textColorDarkGray)
+                                       ),
+                                       WidgetSpan(child: SizedBox(width: 2.w,)),
+                                       TextSpan(
+                                           text: '14',
+                                           style: AppTextTheme.myAppText20(AppColors.textColorBlack)
+                                       ),WidgetSpan(child: SizedBox(width: 2.w,)),
+                                       TextSpan(
+                                           text: 'm',
+                                           style: AppTextTheme.myAppText12(AppColors.textColorDarkGray)
+                                       ),
+                                     ]
+                                   )),
+                                    SizedBox(height: 5.w,)
+                                  ],
+                                ),
                               ),
                             ),
                           ),

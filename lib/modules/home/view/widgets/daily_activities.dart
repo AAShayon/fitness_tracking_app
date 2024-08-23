@@ -34,7 +34,7 @@ class DailyActivities extends StatelessWidget {
                         child: Text(
                           'See all',
                           style:
-                              AppTextTheme.myAppText16(AppColors.vibrantOrange),
+                              AppTextTheme.myAppText14(AppColors.vibrantOrange),
                         ))
                   ],
                 ),

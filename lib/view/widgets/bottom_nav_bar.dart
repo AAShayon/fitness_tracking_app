@@ -1,3 +1,4 @@
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
@@ -12,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = AppHelperFunctions.isDarkMode(context);
-    return Consumer<SettingViewModel>(
+    return Consumer<HomeViewModel>(
       builder: (context, landingScreenViewModel, child) {
         return Container(
           width: 390.w,

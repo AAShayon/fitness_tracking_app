@@ -38,9 +38,11 @@ class ReusableActivity extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  activityName,
-                  style: AppTextTheme.myAppText12(AppColors.textColorBlack),
+                Expanded(
+                  child: Text(
+                    activityName,
+                    style: AppTextTheme.myAppText12(AppColors.textColorBlack),
+                  ),
                 ),
                 Container(
                   height: 24.h,
@@ -57,8 +59,7 @@ class ReusableActivity extends StatelessWidget {
             ),
           ),
           SizedBox(width: 20.w),
-          Container(
-            width: 221.w,
+          Expanded(
             child: Row(
               children: [
                 Container(

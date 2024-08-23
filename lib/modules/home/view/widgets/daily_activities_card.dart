@@ -34,26 +34,22 @@ class DailyActivitiesCard extends StatelessWidget {
               children: [
                 SizedBox(height: 5.h,),
                 SizedBox(
-                  height: 16.h,width: 170.w,
+                  height: 16.h,width: 212.w,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      SizedBox(width: 2.w,),
-                      Padding(
-                        padding:  EdgeInsets.only(left:5.w),
-                        child:    Text('Today, 08:10 AM',
-                          style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),) ,
-                      ),
-                      SizedBox(width: 10.w,),
-                      Icon(Icons.local_fire_department,
-                        color: AppColors.red, size: 10.5.sp,),
-                      Text( cal,
-                          style: AppTextTheme.myAppText16(AppColors.textColorBlack)
-                      ),
-                      Text('cal', style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),)
-
-
-
-
+                      Text('Today,08:10 AM',
+                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
+                      Row(
+                        children: [
+                          Icon(Icons.local_fire_department,
+                            color: AppColors.red, size: 10.5.sp,),
+                          Text( cal,
+                              style: AppTextTheme.myAppText14(AppColors.textColorBlack)
+                          ),
+                          Text('cal', style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -61,9 +57,9 @@ class DailyActivitiesCard extends StatelessWidget {
                 SizedBox(
                   height: 48.h,width: 188.w,
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(width: 3.w,),
+                      SizedBox(width: 5.w,),
                       Container(
                         height: 48.h,width: 48.w,
                         decoration: BoxDecoration(
@@ -75,33 +71,35 @@ class DailyActivitiesCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 4.w,),
-                      SizedBox(
-                        height: 48.h,
-                        width: 128.w,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RichText(text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: progressing,
-                                    style: AppTextTheme.myAppText20(AppColors.textPrimary),
-                                  ),
-                                  if (required != null)  // Show miles if provided
+                      Expanded(
+                        child: SizedBox(
+                          height: 48.h,
+                          // width: 128.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RichText(text: TextSpan(
+                                  children: [
                                     TextSpan(
-                                      text: '/$required miles',
-                                      style: AppTextTheme.myAppText16(AppColors.textColorDarkGray),
-                                    )
-                                  else if (min != null)  // Show minutes if provided and miles is not provided
-                                    TextSpan(
-                                      text: '/$min min',
-                                      style: AppTextTheme.myAppText16(AppColors.textColorDarkGray),
+                                      text: progressing,
+                                      style: AppTextTheme.myAppText14(AppColors.textPrimary),
                                     ),
-                                ]
-                            )),
-                            Text(activities, style: AppTextTheme.myAppText12(AppColors.textColorDarkGray))
-                          ],
+                                    if (required != null)  // Show miles if provided
+                                      TextSpan(
+                                        text: '/$required miles',
+                                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
+                                      )
+                                    else if (min != null)  // Show minutes if provided and miles is not provided
+                                      TextSpan(
+                                        text: '/$min min',
+                                        style: AppTextTheme.myAppText16(AppColors.textColorDarkGray),
+                                      ),
+                                  ]
+                              )),
+                              Text(activities, style: AppTextTheme.myAppText12(AppColors.textColorDarkGray))
+                            ],
+                          ),
                         ),
                       )
                     ],

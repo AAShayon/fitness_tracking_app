@@ -1,3 +1,4 @@
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/circular_progress_indicator.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/goal_progress_statistics.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
@@ -12,7 +13,7 @@ class Statistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingViewModel>(
+    return Consumer<HomeViewModel>(
         builder: (context,landingViewModel,child) {
         return Scaffold(
           appBar: PreferredSize(
@@ -72,47 +73,61 @@ class Statistics extends StatelessWidget {
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(width: 14.w,),
-                      SizedBox(
-                        height: 123.h,width: 191.w,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Start Strong and \nSet Your Fitness\nGoals',style: AppTextTheme.myAppText18(AppColors.white),),
-                            SizedBox(height: 10.h,),
-                            InkWell(
-                              onTap: (){},
-                              splashColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              child: Container(
-                                width: 125.w,
-                                height: 41.h,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12.r),
-                                  color: Colors.white
-                                ),
-                                child: Center(
-                                  child: Text('Set Your Goal',style: AppTextTheme.myAppText14(AppColors.vibrantOrange)),
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.w),
+                        child: SizedBox(
+                          height: 123.h,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Start Strong and \nSet Your Fitness\nGoals',
+                                style: AppTextTheme.myAppText18(AppColors.white),
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                splashColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                child: Container(
+                                  width: 125.w,
+                                  height: 41.h,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                    color: Colors.white,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Set Your Goal',
+                                      style: AppTextTheme.myAppText14(AppColors.vibrantOrange),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(width: 14.w,),
-                      SizedBox(
-                        height: 161.h,
-                        width: 126.w,
-                        child: Column(
-                          children: [
-                            SizedBox(height: 24.h,),
-                            Image.asset('assets/app_icon_images/weight.png')
-                          ],
+                      Flexible(  // Use Flexible to ensure it doesn't take more than available space
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: SizedBox(
+                            height: 161.h,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 20.h),
+                              child: Image.asset(
+                                'assets/app_icon_images/weight.png',
+                                height: 135.h,
+                                width: 126.w,  // Adjust this width if needed
+                                fit: BoxFit.contain, // Ensure the image fits properly
+                              ),
+                            ),
+                          ),
                         ),
-                      )
-
+                      ),
                     ],
-                  ) ,
+                  )
+                  ,
                 ),
               ),
               ),
@@ -137,12 +152,12 @@ class Statistics extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            ProgressCustomCard(current: 5,total: 12,itemName: 'Chest Workout',remainingTime: '15 min remaining',),
+                            const ProgressCustomCard(current: 5,total: 12,itemName: 'Chest Workout',remainingTime: '15 min remaining',),
                             SizedBox(width:10.w),
-                            ProgressCustomCard(current: 3, total: 20, itemName: 'Legs Workout', remainingTime: '23 min remaining'),
+                            const ProgressCustomCard(current: 3, total: 20, itemName: 'Legs Workout', remainingTime: '23 min remaining'),
 
                             SizedBox(width:10.w),
-                            ProgressCustomCard(current: 5, total: 7, itemName: 'Others', remainingTime: '23 min remaining')
+                            const ProgressCustomCard(current: 5, total: 7, itemName: 'Others', remainingTime: '23 min remaining')
                           ],
                         ),
                       ),)
@@ -161,17 +176,17 @@ class Statistics extends StatelessWidget {
                       SizedBox(height: 16.h,),
                       Text('Activities',style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/full_body_warm_up.png',workoutName: 'Full Body Warm Up',remaining: '12 Excercises • 22 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/full_body_warm_up.png',workoutName: 'Full Body Warm Up',remaining: '12 Excercises • 22 min',),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/strength.png',workoutName: 'Strebgth Excercise',remaining: '12 Excercises • 14 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/strength.png',workoutName: 'Strength Exercise',remaining: '12 Exercises • 14 min',),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/plank.png',workoutName: 'Both Side Plank',remaining: '15 Excercises • 18 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/plank.png',workoutName: 'Both Side Plank',remaining: '15 Exercises • 18 min',),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/abs.png',workoutName: 'Abs Workout',remaining: '16 Excercises • 18 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/abs.png',workoutName: 'Abs Workout',remaining: '16 Exercises • 18 min',),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/torso and trap.png',workoutName: 'Torse and trap Workout',remaining: '8 Excercises • 16 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/torso and trap.png',workoutName: 'Torse and trap Workout',remaining: '8 Excercises • 16 min',),
                       SizedBox(height: 16.h,),
-                      ActivitiesVerticalCard(image: 'assets/app_icon_images/lowerback.png',workoutName: 'Lower Back Excercise',remaining: '14 Excercises • 18 min',),
+                      const ActivitiesVerticalCard(image: 'assets/app_icon_images/lowerback.png',workoutName: 'Lower Back Exercise',remaining: '14 Exercises • 18 min',),
 
                     ],
                   ),
@@ -196,7 +211,7 @@ class Statistics extends StatelessWidget {
               //   ),
               //   ),
               // )
-              GoalProgress(),
+              const GoalProgress(),
             ],
           ),
         );
@@ -238,7 +253,7 @@ class ActivitiesVerticalCard extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.keyboard_arrow_right_rounded,color: AppColors.vibrantOrange,))
+          IconButton(onPressed: (){}, icon: const Icon(Icons.keyboard_arrow_right_rounded,color: AppColors.vibrantOrange,))
     
         ],
       ),
@@ -266,7 +281,7 @@ class ProgressCustomCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Positioned(right: 5.w,child: IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))),
+          Positioned(right: 5.w,child: IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
           Positioned(top: 30.h,left: 40.w,child: CircularProgress(current: current,total: total,)),
           Positioned(
           top: 100.h,left: 5.w

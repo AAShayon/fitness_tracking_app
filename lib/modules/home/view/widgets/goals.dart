@@ -97,26 +97,28 @@ class GoalCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Text Section
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: AppTextTheme.myAppText16(Color(0xff1E293B)),
-              ),
-              SizedBox(height: 8.h),
-              Text(
-                subtitle,
-                style: AppTextTheme.myAppText12(Color(0xff475569)),
-              ),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: AppTextTheme.myAppText16(Color(0xff1E293B)),
+                ),
+                Text(
+                  subtitle,
+                  style: AppTextTheme.myAppText12(Color(0xff475569)),
+                ),
+              ],
+            ),
           ),
           // Tag Section
           Container(
             height: 23.h,width: 86.w,
-            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            // padding: EdgeInsets.symmetric(horizontal: 12.w),
             decoration: BoxDecoration(
-              color: Color(0xffFFF7ED),
+              color: const Color(0xffFFF7ED),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Center(

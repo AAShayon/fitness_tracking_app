@@ -105,110 +105,113 @@ class StatisticsProgress extends StatelessWidget {
                 color: AppColors.primaryLight
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  height: 152.h,width: 170.05.w,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 68.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: AppColors.accent,
-                        ),
-                        child:
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(height: 5.h,),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Row(
-                                children: [
-                                  AnyImageView(
-                                    height: 12.sp,width: 12.sp,
-                                    imagePath: 'assets/app_icon_images/shoe.png',
-                                  ),
-                                  SizedBox(width: 5.w,),
-                                  Text('Steps',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
-                                ],
+                Expanded(
+                  child: SizedBox(
+                    height: 152.h,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 68.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4.r),
+                            color: AppColors.accent,
+                          ),
+                          child:
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(height: 5.h,),
+                              Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                                child: Row(
+                                  children: [
+                                    AnyImageView(
+                                      height: 12.sp,width: 12.sp,
+                                      imagePath: 'assets/app_icon_images/shoe.png',
+                                    ),
+                                    SizedBox(width: 5.w,),
+                                    Text('Steps',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Align(
-                                alignment: Alignment.bottomRight,
-                                child: Text('19,124',style: AppTextTheme.myAppText20(AppColors.textColorBlack),),
+                              Padding(
+                                padding:  EdgeInsets.only(right: 10.w),
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                    child: Text('19,124',style: AppTextTheme.myAppText14(AppColors.textColorBlack),)),
                               ),
-                            ),
-                            CustomLinearProgressIndicator(gradient: AppColors.greenLinearGradient,value: .25,colorStatus: const Color(0xff3D9B26).withOpacity(.16),width:170.w ,),
+                              CustomLinearProgressIndicator(gradient: AppColors.greenLinearGradient,value: .25,colorStatus: const Color(0xff3D9B26).withOpacity(.16),width:170.w ,),
 
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        height: 68.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: AppColors.accent,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(height: 5.h,),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Row(
-                                children: [
-                                  AnyImageView(
-                                    height: 12.sp,width: 12.sp,
-                                    imagePath: 'assets/app_icon_images/moon.png',
-                                  ),
-                                  SizedBox(width: 5.w,),
-                                  Text('Sleep',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
-                                ],
+                        const Spacer(),
+                        Container(
+                          height: 68.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4.r),
+                            color: AppColors.accent,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(height: 5.h,),
+                              Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                                child: Row(
+                                  children: [
+                                    AnyImageView(
+                                      height: 12.sp,width: 12.sp,
+                                      imagePath: 'assets/app_icon_images/moon.png',
+                                    ),
+                                    SizedBox(width: 5.w,),
+                                    Text('Sleep',style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Align(
-                                alignment: Alignment.bottomRight,
-                                child:
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: '7',
-                                        style: AppTextTheme.myAppText20(AppColors.primaryDark),
-                                      ),
-                                      TextSpan(
-                                        text: 'h ',
-                                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
-                                      ),
-                                      TextSpan(
-                                        text: '34',
-                                        style: AppTextTheme.myAppText20(AppColors.primaryDark),
-                                      ),
-                                      TextSpan(
-                                        text: 'm',
-                                        style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
-                                      ),
-                                    ],
+                              Padding(
+                                padding:  EdgeInsets.only(right: 10.w),
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: '7',
+                                          style: AppTextTheme.myAppText14(AppColors.primaryDark),
+                                        ),
+                                        TextSpan(
+                                          text: 'h ',
+                                          style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
+                                        ),
+                                        TextSpan(
+                                          text: '34',
+                                          style: AppTextTheme.myAppText14(AppColors.primaryDark),
+                                        ),
+                                        TextSpan(
+                                          text: 'm',
+                                          style: AppTextTheme.myAppText12(AppColors.textColorDarkGray),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            CustomLinearProgressIndicator(gradient: AppColors.magentaPinkLinearGradient,value: .25,colorStatus: const Color(0xffCD10C6).withOpacity(.08),width:170.w ,),
+                              CustomLinearProgressIndicator(gradient: AppColors.magentaPinkLinearGradient,value: .25,colorStatus: const Color(0xffCD10C6).withOpacity(.08),width:170.w ,),
 
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                const Spacer(),
-                const HeartRateCard(),
+                SizedBox(width: 10.w,),
+                Expanded(child: const HeartRateCard()),
               ],
             ),
           )

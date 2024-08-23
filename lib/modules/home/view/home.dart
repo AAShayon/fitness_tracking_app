@@ -37,6 +37,7 @@ class _HomeState extends State {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // User Profile Image
                               CircleAvatar(
@@ -44,7 +45,6 @@ class _HomeState extends State {
                                 backgroundImage:  const AssetImage('assets/app_icon_images/profile.png',),
                                 backgroundColor: AppColors.white,
                               ),
-                              SizedBox(width: 12.w), // Spacing between image and text
 
                               // Greeting Text
                               Column(
@@ -176,24 +176,6 @@ class _HomeState extends State {
               SizedBox(height: 16.h,),
               const StatisticsProgress(),
               SizedBox(height: 16.h,),
-              // Container(height: 232.h,color: Colors.white,
-              //   child: Padding(
-              //     padding: EdgeInsets.symmetric(horizontal: 22.w),
-              //     child: Column(
-              //       children: [
-              //         SizedBox(height: 10.h,),
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             Text('Daily Activities',style: AppTextTheme.myAppText20(AppColors.textPrimary),),
-              //             TextButton(onPressed: (){}, child: Text('See all',style: AppTextTheme.myAppText16(AppColors.vibrantOrange),))
-              //           ],
-              //         ),
-              //         SizedBox(height:10.h),
-              //
-              //       ],
-              //     ),
-              //   ),),
               const DailyActivities(),
               SizedBox(height: 16.h,),
               Container(height: 214.h,color: Colors.white,
