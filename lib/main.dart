@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:fitness_tracking_app/modules/activity/view/activity.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/auth/view/registration.dart';
@@ -10,7 +9,6 @@ import 'package:fitness_tracking_app/utils/theme/theme.dart';
 import 'package:fitness_tracking_app/view/splash_screen.dart';
 import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,9 +26,7 @@ void main() async {
         Locale("bn", ""),
       ],
       path: 'lib/model/service/localization/language',
-      child:   DevicePreview(enabled: !kReleaseMode, // Enable DevicePreview in non-release modes
-          builder: (context) => MyApp())
-      ,
+      child:  const MyApp(),
     ),
   );
 }
