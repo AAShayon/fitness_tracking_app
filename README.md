@@ -65,5 +65,5 @@ This Flutter-based fitness tracking app is designed to help users monitor and tr
 - Complete API integration and refine local database functionality as needed.
 ## APK Download
 
-[Download the APK](https://drive.google.com/file/d/1qAXOUjAM18sDjBewsUDKlf5Tu80G5Anq/view?usp=sharing)
+[Download the APK](https://drive.google.com/file/d/16f9ZC0ZliD2A_EhldrNvaNA-mUR3FRp3/view?usp=sharing)
 
