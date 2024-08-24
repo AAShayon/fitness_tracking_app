@@ -1,11 +1,12 @@
 import 'dart:ui';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
 import 'package:flutter/material.dart';
 
 class AppHelperFunctions {
   static void showSuccessSnackBar(BuildContext context, String message,Color color,int time) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message),duration:  Duration(milliseconds: time),backgroundColor: color,),
+      SnackBar(content: Text(message,style: AppTextTheme.myAppText161(color),),duration:  Duration(milliseconds: time),backgroundColor: color,),
     );
   }
 
@@ -15,12 +16,12 @@ class AppHelperFunctions {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor:backgroundColor ,
-          title: Text(title),
-          content: Text(message),
+          title: Text(title,style: AppTextTheme.myAppText161(Colors.red),),
+          content: Text(message,style: AppTextTheme.myAppText161(Colors.red),),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('OK'),
+              child:  Text('OK',style: AppTextTheme.myAppText161(Colors.red),),
             ),
           ],
         );

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/custom_search_delegate.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/daily_activities.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/goals.dart';
@@ -55,7 +57,7 @@ class _HomeState extends State {
                                 children: [
                                   RichText(
                                     text: TextSpan(
-                                      text: 'Hello! ',
+                                      text: "Hello!".tr(),
                                       style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.normal,
@@ -116,7 +118,7 @@ class _HomeState extends State {
                                           color:AppColors.vibrantOrange,
                                           borderRadius: BorderRadius.circular(100),
                                         ),
-                                      ):SizedBox.shrink()
+                                      ):const SizedBox.shrink()
                                   ),
                                   Center(
                                     child: Image.asset('assets/app_icon_images/notifications.png',width: 24.sp,height: 24.sp,),
@@ -131,7 +133,7 @@ class _HomeState extends State {
                                           color:AppColors.vibrantOrange,
                                           borderRadius: BorderRadius.circular(100),
                                         ),
-                                      ):SizedBox.shrink()
+                                      ):const SizedBox.shrink()
                                   )
                                 ],
                               )
@@ -167,7 +169,7 @@ class _HomeState extends State {
                         children: [
                           Icon(Icons.search,color: AppColors.customGray,size:18.5.sp ,),
                           SizedBox(width: 5.w,),
-                          Text('Search',style: AppTextTheme.myAppText16(AppColors.customGray),)
+                          Text("Search".tr(),style: AppTextTheme.myAppText16(AppColors.customGray),)
                         ],
                       ),
                     ),

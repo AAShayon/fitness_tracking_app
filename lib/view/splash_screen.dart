@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:any_image_view/any_image_view.dart';
 import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
+import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
+import 'package:fitness_tracking_app/view/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,8 +22,15 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () async {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Login()));
+      final homeViewModel=Provider.of<HomeViewModel>(context,listen: false);
+      bool isLoggedIn=await homeViewModel.isLoggedIn();
+      if (!mounted) return;
+        if(isLoggedIn){
+          AppHelperFunctions.navigateToScreenAndRemoveUntil(context,LandingPage());
+        } else {
+          AppHelperFunctions.navigateToScreenAndRemoveUntil(context, const Login());
+        }
+
     });
 
   }

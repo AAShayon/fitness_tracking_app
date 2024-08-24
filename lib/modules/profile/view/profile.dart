@@ -64,6 +64,7 @@ import 'dart:convert';
 
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
+import 'package:fitness_tracking_app/modules/profile/view/widgets/user_setting.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -257,39 +258,6 @@ class Profile extends StatelessWidget {
                           ),
                         ],
                       ),
-
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Expanded(
-                      //       child: Row(
-                      //         children: [
-                      //           Image.asset('assets/app_icon_images/shoe.png',height: 15.sp,width: 15.sp,),
-                      //           SizedBox(width: 8.w),
-                      //           const ProgressCountCard(count: '67,265',specification: 'steps',),
-                      //         ],
-                      //       ),
-                      //     ),
-                      //     Expanded(
-                      //       child: Row(
-                      //         children: [
-                      //           Icon(Icons.local_fire_department, color: Colors.red, size: 20.sp),
-                      //           SizedBox(width: 8.w),
-                      //          const ProgressCountCard(count: '67,30.5', specification: 'cal'),
-                      //         ],
-                      //       ),
-                      //     ),
-                      //     Expanded(
-                      //       child: Row(
-                      //         children: [
-                      //           Icon(Icons.location_on, color: AppColors.vibrantOrange, size: 20.sp),
-                      //           SizedBox(width: 8.w),
-                      //           const ProgressCountCard(count: '50.2', specification: 'mi'),
-                      //         ],
-                      //       ),
-                      //     )
-                      //   ],
-                      // ),
                       SizedBox(height: 20.h),
                       // Progress Bar Chart
                       SizedBox(
@@ -492,7 +460,7 @@ class Profile extends StatelessWidget {
               SizedBox(height: 16.h),
               Container(
                 width: 390.w,
-                height: 266.h,
+                height: 324.h,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -510,6 +478,8 @@ class Profile extends StatelessWidget {
                       ProfileButton(iconData: Icons.notifications, btnName: 'Notification',onPressed: (){},),
                       Container(height: 2.h,color: AppColors.accent,),
                       ProfileButton(iconData: Icons.description, btnName: 'Privacy Policy',onPressed: (){},),
+                      Container(height: 2.h,color: AppColors.accent,),
+                      ProfileButton(iconData: Icons.description, btnName: 'Settings',onPressed: (){AppHelperFunctions.navigateToScreen(context, const UserSetting());},),
                       Container(height: 2.h,color: AppColors.accent,),
                       ProfileButton(iconData: Icons.logout_outlined, btnName: 'Log out',onPressed: ()async{
                       await homeViewModel.logout().then((isTrue){
