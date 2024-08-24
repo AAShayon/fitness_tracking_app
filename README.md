@@ -1,6 +1,6 @@
 # Fitness Tracking App
 
-This Flutter-based fitness tracking app is designed to help users monitor and track their fitness activities with a clean and intuitive UI. The app supports multiple themes, language localization, and includes API integration using Dio, local storage with shared preferences, and much more.
+This Flutter-based fitness tracking app is designed to help users monitor and track their fitness activities with a clean and intuitive UI. The app supports multiple themes, Language localization, and includes API integration using Dio, local storage with shared preferences, and much more.
 
 ## Features
 
@@ -13,6 +13,8 @@ This Flutter-based fitness tracking app is designed to help users monitor and tr
 ## Screenshot
 
 ![Fitness Tracker](./fitness%20tracker.png)
+
+![Fitness Tracker](./fitness%20tracker2.png)
 
 
 ## Dependencies
@@ -56,15 +58,12 @@ This Flutter-based fitness tracking app is designed to help users monitor and tr
 
 ## Known Issues
 
-- **Back Button**: The `WillPopScope` functionality for back button handling needs refinement.
 - **API Integration**: The API setup is in place but not fully implemented.
 
 ## Future Improvements
 
-- Complete API integration and local database functionality.
-- Refine theme mode integration with the UI.
-- Fix back button behavior using `WillPopScope`.
+- Complete API integration and refine local database functionality as needed.
 ## APK Download
 
-[Download the APK](https://drive.google.com/file/d/1-5iujQLLtEuvD-rP1pE43E0gCbXG0-xg/view?usp=sharing)
+[Download the APK](https://drive.google.com/file/d/1qAXOUjAM18sDjBewsUDKlf5Tu80G5Anq/view?usp=sharing)
 
