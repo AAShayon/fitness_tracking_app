@@ -2,7 +2,6 @@ import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
-import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -113,7 +112,7 @@ class BottomNavBar extends StatelessWidget {
                           style: AppTextTheme.myAppText12(
                             landingScreenViewModel.currentIndex == 2
                                 ? AppColors.vibrantOrange
-                                : AppColors.grey,
+                                : AppColors.customGray,
                           ),
                         ),
                       ],
@@ -139,7 +138,7 @@ class BottomNavBar extends StatelessWidget {
                           style: AppTextTheme.myAppText12(
                             landingScreenViewModel.currentIndex == 3
                                 ? AppColors.vibrantOrange
-                                : AppColors.grey,
+                                : AppColors.customGray,
                           ),
                         ),
                       ],

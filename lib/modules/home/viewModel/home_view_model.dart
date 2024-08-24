@@ -12,6 +12,8 @@ class HomeViewModel with ChangeNotifier {
   int _currentPageIndex = 0;
   int _currentIndex = 0;
   bool _onPause = false;
+  bool _notificationOn=false;
+  bool get notificationOn=>_notificationOn;
   bool get onPause => _onPause;
   int get currentIndex => _currentIndex;
 
@@ -31,6 +33,10 @@ class HomeViewModel with ChangeNotifier {
   }
   void togglePause() {
     _onPause = !_onPause;
+    notifyListeners();
+  }
+  void toggleNotification() {
+    _notificationOn = !_notificationOn;
     notifyListeners();
   }
   void updateIndex(int index) {

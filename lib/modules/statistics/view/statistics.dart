@@ -1,11 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/circular_progress_indicator.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/goal_progress_statistics.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
-import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
