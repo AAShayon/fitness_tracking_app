@@ -61,7 +61,7 @@ class _ActivityState extends State<Activity> {
                               width: 10.w,
                             ),
                             Text(
-                              'Daily Activity',
+                              'Daily Activity'.tr(),
                               style: AppTextTheme.myAppText20(
                                   const Color(0xff000B23)),
                             ),
@@ -147,7 +147,7 @@ class _ActivityState extends State<Activity> {
                       height: 14.h,
                     ),
                     Text(
-                      'Today your activities',
+                      'Today your activities'.tr(),
                       style: AppTextTheme.myAppText20(AppColors.textColorBlack),
                     ),
                     SizedBox(
@@ -173,8 +173,10 @@ class _ActivityState extends State<Activity> {
                             DateTime date = DateTime.now()
                                 .subtract(Duration(days: 3 - index));
                             final dayName =
-                                DateFormat('EEE').format(date); // Get day name
-
+                                DateFormat('EEE').format(date).tr(); // Get day name
+                            String formattedDayNumber = Localizations.localeOf(context).languageCode == 'bn'
+                                ? NumberFormat('##', 'bn_BD').format(date.day) // Bengali number format
+                                : DateFormat('dd').format(date); // English format for day number
                             return FadeInAnimation(
                               direction: FadeInDirection.rtl,
                               delay: .2 + index,
@@ -207,7 +209,7 @@ class _ActivityState extends State<Activity> {
                                                 date.day == selectedDate.day
                                                     ? AppColors.primaryLight
                                                     : AppColors.vibrantOrange)),
-                                        Text(DateFormat('dd').format(date),
+                                        Text(formattedDayNumber,
                                             // Get day number
                                             style: AppTextTheme.myAppText16(
                                                 date.day == selectedDate.day
@@ -243,7 +245,7 @@ class _ActivityState extends State<Activity> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('You\'ve burned',
+                        Text("You've burned".tr(),
                             style: AppTextTheme.myAppText16(
                                 AppColors.textColorBlack)),
                         Row(
@@ -486,7 +488,7 @@ class _ActivityState extends State<Activity> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 14.h,),
-                    Text('Activities',style: AppTextTheme.myAppText20(AppColors.textColorBlack),),
+                    Text('Activities'.tr(),style: AppTextTheme.myAppText20(AppColors.textColorBlack),),
                     SizedBox(height: 20.h,),
                     // ActivitiesVerticalCard(),
                     const ActivitiesVerticalCard(

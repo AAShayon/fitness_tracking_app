@@ -57,7 +57,7 @@ class _HomeState extends State {
                                 children: [
                                   RichText(
                                     text: TextSpan(
-                                      text: "Hello!".tr(),
+                                      text: "Hello! ".tr(),
                                       style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.normal,
@@ -77,7 +77,7 @@ class _HomeState extends State {
                                   ),
                                   SizedBox(height: 4.h),
                                   Text(
-                                    AppHelperFunctions.getFormattedDate(context, DateTime.now()),
+                                    AppHelperFunctions.getFormattedDate(context, DateTime.now()).tr(),
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color: AppColors.customGray,

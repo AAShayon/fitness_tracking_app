@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/slider.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
@@ -26,13 +28,13 @@ class DailyActivities extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Daily Activities',
+                      'Daily Activities'.tr(),
                       style: AppTextTheme.myAppText20(AppColors.textPrimary),
                     ),
                     TextButton(
                         onPressed: () {},
                         child: Text(
-                          'See all',
+                          'See all'.tr(),
                           style:
                               AppTextTheme.myAppText14(AppColors.vibrantOrange),
                         ))

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,7 @@ class GoalsWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Goals',
+                  'Goals'.tr(),
                   style: AppTextTheme.myAppText20(AppColors.textColorBlack),
                 ),
                 TextButton(
@@ -25,8 +27,8 @@ class GoalsWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'View All',
-                        style: AppTextTheme.myAppText16(AppColors.vibrantOrange),
+                        'View All'.tr(),
+                        style: AppTextTheme.myAppText14(AppColors.vibrantOrange),
                       ),
                       Icon(
                         Icons.arrow_forward_ios,

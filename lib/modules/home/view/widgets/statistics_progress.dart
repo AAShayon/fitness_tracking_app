@@ -1,4 +1,6 @@
 import 'package:any_image_view/any_image_view.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/custom_linear_progress_indicator.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/heart_rate_card.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
@@ -24,8 +26,8 @@ class StatisticsProgress extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Your statistics',style: AppTextTheme.myAppText20(AppColors.textPrimary),),
-              TextButton(onPressed: (){}, child: Text('See all',style: AppTextTheme.myAppText16(AppColors.vibrantOrange),))
+              Text('Your statistics'.tr(),style: AppTextTheme.myAppText20(AppColors.textPrimary),),
+              TextButton(onPressed: (){}, child: Text('See all'.tr(),style: AppTextTheme.myAppText16(AppColors.vibrantOrange),))
             ],
           ),
           SizedBox(height:10.h),

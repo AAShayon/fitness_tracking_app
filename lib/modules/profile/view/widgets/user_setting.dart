@@ -319,7 +319,6 @@ class UserSetting extends StatelessWidget {
                               onChanged: (Locale? value) {
                                 if (value != null) {
                                   context.setLocale(value); // Change language to English
-                                  AppHelperFunctions.showAlert(context, 'Error', 'Not properly implement\nWill Work in Future', AppColors.white);
                                 }
                               },
                             ),
@@ -336,7 +335,6 @@ class UserSetting extends StatelessWidget {
                               onChanged: (Locale? value) {
                                 if (value != null) {
                                   context.setLocale(value); // Change language to Bangla
-                                  AppHelperFunctions.showAlert(context, 'Error', 'Not properly implement\nWill Work in Future', AppColors.white);
                                 }
                               },
                             ),

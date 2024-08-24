@@ -56,12 +56,26 @@ class AppHelperFunctions {
   }
 
 
+  // static String getFormattedDate(
+  //     BuildContext context,
+  //     DateTime date, {
+  //       String format = 'dd MMM yyyy',
+  //     }) {
+  //   return DateFormat(format).format(date);
+  // }
   static String getFormattedDate(
       BuildContext context,
       DateTime date, {
         String format = 'dd MMM yyyy',
       }) {
-    return DateFormat(format).format(date);
+    Locale currentLocale = context.locale; // Get the current locale
+
+    // Format date based on locale (English or Bengali)
+    if (currentLocale.languageCode == 'bn') {
+      return DateFormat('dd MMMM yyyy', 'bn_BD').format(date); // Bengali date format
+    } else {
+      return DateFormat('dd MMMM yyyy', 'en_US').format(date); // English date format
+    }
   }
 
   static List<T> removeDuplicates<T>(List<T> list) {

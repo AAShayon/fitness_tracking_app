@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/circular_progress_indicator.dart';
 import 'package:fitness_tracking_app/modules/statistics/view/widget/goal_progress_statistics.dart';
@@ -45,7 +47,7 @@ class Statistics extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 10.w,),
-                              Text('Goal',style: AppTextTheme.myAppText20(const Color(0xff000B23)),),
+                              Text('Goal'.tr(),style: AppTextTheme.myAppText20(const Color(0xff000B23)),),
                             ],
                           ),
                         ],
@@ -143,7 +145,7 @@ class Statistics extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Progress',style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
+                          Text('Progress'.tr(),style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
                           TextButton(onPressed: (){}, child: Text('See All',style: AppTextTheme.myAppText12(AppColors.vibrantOrange),)),
                         ],
                       ),
@@ -174,7 +176,7 @@ class Statistics extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 16.h,),
-                      Text('Activities',style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
+                      Text('Activities'.tr(),style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
                       SizedBox(height: 16.h,),
                       const ActivitiesVerticalCard(image: 'assets/app_icon_images/full_body_warm_up.png',workoutName: 'Full Body Warm Up',remaining: '12 Excercises • 22 min',),
                       SizedBox(height: 16.h,),
@@ -193,24 +195,6 @@ class Statistics extends StatelessWidget {
                 ),
               ),
               Container(height: 16.h,color: AppColors.accent,),
-              // Container(
-              //   height: 316.h,
-              //   width: 390.w,
-              //   color: Colors.white,
-              //   child: Padding(padding: EdgeInsets.symmetric(horizontal: 16.5.w),
-              //   child: Column(
-              //     children: [
-              //       Row(
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [
-              //           Text('Goal Progress',style: AppTextTheme.myAppText18(AppColors.textColorBlack),),
-              //          DropdownButton(onPressed: (){}, child: Text('See All',style: AppTextTheme.myAppText12(AppColors.vibrantOrange),)),
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              //   ),
-              // )
               const GoalProgress(),
             ],
           ),
@@ -283,12 +267,29 @@ class ProgressCustomCard extends StatelessWidget {
         children: [
           Positioned(right: 5.w,child: IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
           Positioned(top: 30.h,left: 40.w,child: CircularProgress(current: current,total: total,)),
-          Positioned(
-          top: 100.h,left: 5.w
-          ,child: Text(itemName,style: AppTextTheme.myAppText18(AppColors.textColorBlack),)),
-          Positioned(
-            top: 120.h,left: 20.w,
-              child: Text(remainingTime,style: AppTextTheme.myAppText12(AppColors.darkerGrey),))
+          // Positioned(
+          // top: 100.h,left: 20.w,
+          // child: Center(child: Text(itemName,style: AppTextTheme.myAppText18(AppColors.textColorBlack),))),
+          // Positioned(
+          //   top: 120.h,left: 20.w,
+          //     child: Text(remainingTime,style: AppTextTheme.myAppText12(AppColors.darkerGrey),))
+          Align(
+            alignment: Alignment.bottomCenter, // Centering horizontally and vertically
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  itemName,
+                  style: AppTextTheme.myAppText18(AppColors.textColorBlack),
+                ),
+                SizedBox(height: 8.h), // Add space between the itemName and remainingTime
+                Text(
+                  remainingTime,
+                  style: AppTextTheme.myAppText12(AppColors.darkerGrey),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

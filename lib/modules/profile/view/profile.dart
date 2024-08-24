@@ -62,6 +62,8 @@
 // }
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
 import 'package:fitness_tracking_app/modules/profile/view/widgets/user_setting.dart';
@@ -71,9 +73,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:fitness_tracking_app/viewModel/setting_view_model.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -112,7 +112,7 @@ class Profile extends StatelessWidget {
                           ),
                           SizedBox(width: 10.w),
                           Text(
-                            'Profile',
+                            'Profile'.tr(),
                             style: AppTextTheme.myAppText20(
                               const Color(0xff000B23),
                             ),
@@ -127,8 +127,6 @@ class Profile extends StatelessWidget {
           ),
           body: ListView(
             children: [
-
-              // User Profile Information
               Container(
                 color: Colors.white,
                 height:112.h ,width: 390.w,
@@ -226,7 +224,7 @@ class Profile extends StatelessWidget {
                       SizedBox(height: 14.h),
                       // Weekly Progress
                       Text(
-                        "This Week's progress",
+                        "This Week's progress".tr(),
                         style: AppTextTheme.myAppText18(AppColors.textColorBlack),
                       ),
                       SizedBox(height: 8.h),
@@ -301,7 +299,7 @@ class Profile extends StatelessWidget {
               Container(height: 16.h,color: AppColors.accent,),
 
               Container(
-                height: 162.h,width: 358.w,
+                height: 164.h,width: 358.w,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -310,7 +308,7 @@ class Profile extends StatelessWidget {
                     children: [
                       SizedBox(height: 20.h),
                       Text(
-                        'Your Goal setting',
+                        'Your Goal setting'.tr(),
                         style: AppTextTheme.myAppText18(AppColors.textColorBlack),
                       ),
                       SizedBox(height: 14.h),
@@ -380,7 +378,7 @@ class Profile extends StatelessWidget {
               ),
               Container(height: 20.h,color: AppColors.accent,),
               Container(
-                height: 162.h,width: 358.w,
+                height: 164.h,width: 358.w,
                 color: Colors.white,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.5.w),
@@ -389,7 +387,7 @@ class Profile extends StatelessWidget {
                     children: [
                       SizedBox(height: 20.h),
                       Text(
-                        'Your sleep cycle',
+                        'Your sleep cycle'.tr(),
                         style: AppTextTheme.myAppText18(AppColors.textColorBlack),
                       ),
                       SizedBox(height: 14.h),
@@ -469,7 +467,7 @@ class Profile extends StatelessWidget {
                     children: [
                       SizedBox(height: 10.h,),
                       Text(
-                        'Others',
+                        'Others'.tr(),
                         style: AppTextTheme.myAppText18(AppColors.textColorBlack),
                       ),
 

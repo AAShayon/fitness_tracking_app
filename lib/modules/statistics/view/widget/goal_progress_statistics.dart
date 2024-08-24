@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class GoalProgress extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Goal Progress',
+                  'Goal Progress'.tr(),
                   style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
@@ -72,19 +73,19 @@ class GoalProgress extends StatelessWidget {
                           );
                           switch (value.toInt()) {
                             case 0:
-                              return Text('Mon', style: style);
+                              return Text('Mon'.tr(), style: style);
                             case 1:
-                              return Text('Tue', style: style);
+                              return Text('Tue'.tr(), style: style);
                             case 2:
-                              return Text('Wed', style: style);
+                              return Text('Wed'.tr(), style: style);
                             case 3:
-                              return Text('Thu', style: style);
+                              return Text('Thu'.tr(), style: style);
                             case 4:
-                              return Text('Fri', style: style);
+                              return Text('Fri'.tr(), style: style);
                             case 5:
-                              return Text('Sat', style: style);
+                              return Text('Sat'.tr(), style: style);
                             case 6:
-                              return Text('Sun', style: style);
+                              return Text('Sun'.tr(), style: style);
                             default:
                               return Text('');
                           }
@@ -197,7 +198,7 @@ class TimePeriodDropdown extends StatefulWidget {
 }
 
 class _TimePeriodDropdownState extends State<TimePeriodDropdown> {
-  String selectedPeriod = 'Weekly'; // Initial value
+  String selectedPeriod = 'Weekly'.tr(); // Initial value
 
   @override
   Widget build(BuildContext context) {
@@ -214,16 +215,16 @@ class _TimePeriodDropdownState extends State<TimePeriodDropdown> {
             items: <String>['Daily', 'Weekly', 'Monthly', 'Yearly']
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
-                value: value,
+                value: value.tr(),
                 child: Text(
-                  value,
+                  value.tr(),
                   style: AppTextTheme.myAppText12(Color(0xff494949)),
                 ),
               );
             }).toList(),
             onChanged: (String? newValue) {
               setState(() {
-                selectedPeriod = newValue!;
+                selectedPeriod = newValue!.tr();
               });
             },
             icon: Icon(
