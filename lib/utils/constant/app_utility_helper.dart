@@ -10,7 +10,7 @@ class AppHelperFunctions {
     );
   }
 
-  static void showAlert(BuildContext context, String title, String message,Color backgroundColor) {
+  static void showAlert(BuildContext context, String title, String message,Color backgroundColor,dynamic onPressed) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -20,7 +20,7 @@ class AppHelperFunctions {
           content: Text(message,style: AppTextTheme.myAppText161(Colors.red),),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: onPressed,
               child:  Text('OK',style: AppTextTheme.myAppText161(Colors.red),),
             ),
           ],

@@ -66,6 +66,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_tracking_app/main.dart';
 import 'package:fitness_tracking_app/modules/auth/view/login.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
+import 'package:fitness_tracking_app/modules/profile/view/widgets/notification.dart';
 import 'package:fitness_tracking_app/modules/profile/view/widgets/user_setting.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -473,7 +474,7 @@ class Profile extends StatelessWidget {
 
                       ProfileButton(btnName: 'My Account',iconData: Icons.person,onPressed: (){},),
                       Container(height: 2.h,color: AppColors.accent,),
-                      ProfileButton(iconData: Icons.notifications, btnName: 'Notification',onPressed: (){},),
+                      ProfileButton(iconData: Icons.notifications, btnName: 'Notification',onPressed: (){AppHelperFunctions.navigateToScreen(context, const NotificationSetting());},),
                       Container(height: 2.h,color: AppColors.accent,),
                       ProfileButton(iconData: Icons.description, btnName: 'Privacy Policy',onPressed: (){},),
                       Container(height: 2.h,color: AppColors.accent,),

@@ -7,6 +7,7 @@ import 'package:fitness_tracking_app/modules/home/view/widgets/daily_activities.
 import 'package:fitness_tracking_app/modules/home/view/widgets/goals.dart';
 import 'package:fitness_tracking_app/modules/home/view/widgets/statistics_progress.dart';
 import 'package:fitness_tracking_app/modules/home/viewModel/home_view_model.dart';
+import 'package:fitness_tracking_app/modules/profile/view/widgets/notification.dart';
 import 'package:fitness_tracking_app/utils/constant/app_utility_helper.dart';
 import 'package:fitness_tracking_app/utils/constant/colors.dart';
 import 'package:fitness_tracking_app/utils/theme/custom_themes/text_themes.dart';
@@ -77,7 +78,7 @@ class _HomeState extends State {
                                   ),
                                   SizedBox(height: 4.h),
                                   Text(
-                                    AppHelperFunctions.getFormattedDate(context, DateTime.now()).tr(),
+                                    AppHelperFunctions.getFormattedDate(context, DateTime.now()),
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color: AppColors.customGray,
@@ -93,7 +94,22 @@ class _HomeState extends State {
                             splashColor: Colors.transparent,
                             hoverColor: Colors.transparent,
                             onTap: () {
-                             homeViewModel.togglePause();
+                            homeViewModel.notificationOn?
+                           homeViewModel.togglePause(): AppHelperFunctions.showAlert(
+                              context,
+                              'Notification',
+                              'Notifications are off. Please go to the Notification screen and turn them on.'.tr(),
+                              AppColors.light,
+                                  () {
+                                // Close the alert dialog and navigate to the Notification Setting
+                                Navigator.of(context).pop();
+                                Future.delayed(const Duration(milliseconds: 300), () {
+                                  if (context.mounted) {
+                                    AppHelperFunctions.navigateToScreen(context, const NotificationSetting());
+                                  }
+                                });
+                              },
+                            );
                             },
                             child: Container(
                               width: 35.sp,
@@ -194,5 +210,4 @@ class _HomeState extends State {
     );
   }
 }
-
 
